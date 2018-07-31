@@ -207,6 +207,14 @@ public class ExperienceConfig extends AutoUpdateConfigLoader {
             return config.getInt(wildcardString);
         return 0;
     }
+    public int getXp(SkillType skill, Material material)
+    {
+        String baseString = "Experience." + StringUtils.getCapitalized(skill.toString()) + ".";
+        String prettyString = baseString + StringUtils.getPrettyItemString(material);
+        if (config.contains(prettyString))
+            return config.getInt(prettyString);
+        return 0;
+    }
     
     public boolean isSkillBlock(SkillType skill, BlockData data)
     {
